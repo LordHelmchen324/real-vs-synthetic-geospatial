@@ -5,3 +5,5 @@ sumo-1.0.1/*
 osm_maps/*
 
 streets.data
+
+berlinmod/*.data
