@@ -4,6 +4,8 @@ osm_maps/*
 cabspotting/original/*
 geolife/original/*
 t-drive/original/*
+mdc/original/*
+mdc/uncompressed/*
 
 *.pkl
 *.csv
