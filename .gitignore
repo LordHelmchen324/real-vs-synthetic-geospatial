@@ -1,5 +1,4 @@
 .ipynb_checkpoints/*
-osm_maps/*
 
 cabspotting/original/*
 geolife/original/*
@@ -10,3 +9,5 @@ mdc/uncompressed/*
 *.pkl
 *.csv
 *.data
+
+*.osm.xml

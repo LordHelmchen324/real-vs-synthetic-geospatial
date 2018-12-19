@@ -7,7 +7,7 @@ name = sys.argv[1]
 print('Parsing osm.xml file ...')
 
 # Parse osm.xml file
-tree = et.parse('osm_maps/%s.osm.xml' % (name))
+tree = et.parse('%s.osm.xml' % (name))
 root = tree.getroot()
 
 print('Creating dictionary of all nodes ...')
@@ -47,13 +47,13 @@ for way in root.findall('way'):
 print('Writing data to pickle ...')
 
 # Write street data to pickle
-with open('osm_maps/streets_%s.pkl' % (name), 'wb') as file:
+with open('streets_%s.pkl' % (name), 'wb') as file:
     pickle.dump(streets, file)
 
 print('Writing data to nested list .data file for BerlinMod ...')
 
 # Write street data to nested list .data file for BerlinMod
-with open('berlinmod/streets_%s.data' % (name), 'w') as file:
+with open('../berlinmod/streets_%s.data' % (name), 'w') as file:
     file.write('\n')
     file.write('(OBJECT streets \n')
     file.write('    () \n')

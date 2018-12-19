@@ -8,7 +8,7 @@ name = sys.argv[1]
 print('Reading data from generated csv file ...')
 
 # Read data from generated file
-df = pd.read_csv('berlinmod/trips_%s.csv' % (name))
+df = pd.read_csv('trips_%s.csv' % (name))
 df['time'] = pd.to_datetime(df['Tstart'], format = '%Y-%m-%d %H:%M:%S')
 df['longitude'] = df['Xstart']
 df['latitude'] = df['Ystart']
@@ -24,6 +24,6 @@ df_reindexed.sort_index(inplace=True)
 print('Saving the dataset to .pkl ...')
 
 # Save the dataset to .pkl
-df_reindexed.to_pickle('berlinmod/%s.pkl' %(name))
+df_reindexed.to_pickle('%s.pkl' %(name))
 
 print('...done!')
