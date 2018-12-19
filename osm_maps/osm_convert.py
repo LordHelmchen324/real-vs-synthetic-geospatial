@@ -53,7 +53,7 @@ with open('streets_%s.pkl' % (name), 'wb') as file:
 print('Writing data to nested list .data file for BerlinMod ...')
 
 # Write street data to nested list .data file for BerlinMod
-with open('../berlinmod/streets_%s.data' % (name), 'w') as file:
+with open('../data_berlinmod/streets_%s.data' % (name), 'w') as file:
     file.write('\n')
     file.write('(OBJECT streets \n')
     file.write('    () \n')

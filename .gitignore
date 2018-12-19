@@ -1,11 +1,11 @@
 .ipynb_checkpoints/*
 */.ipynb_checkpoints/*
 
-cabspotting/original/*
-geolife/original/*
-t-drive/original/*
-mdc/original/*
-mdc/uncompressed/*
+data_cabspotting/original/*
+data_geolife/original/*
+data_t-drive/original/*
+data_mdc/original/*
+data_mdc/uncompressed/*
 
 *.pkl
 *.csv
