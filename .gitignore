@@ -1,6 +1,8 @@
 .ipynb_checkpoints/*
 */.ipynb_checkpoints/*
 
+machine_learning/summary/*
+
 data_cabspotting/original/*
 data_geolife/original/*
 data_t-drive/original/*
