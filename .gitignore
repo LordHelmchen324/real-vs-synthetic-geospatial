@@ -1,6 +1,9 @@
 .ipynb_checkpoints/*
 */.ipynb_checkpoints/*
 
+machine_learning/checkpoints/*
+machine_learning/generated/*
+machine_learning/histories/*
 machine_learning/summary/*
 
 data_cabspotting/original/*
