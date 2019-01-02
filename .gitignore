@@ -1,6 +1,8 @@
 .ipynb_checkpoints/*
 */.ipynb_checkpoints/*
 
+cache/*
+
 machine_learning/checkpoints/*
 machine_learning/generated/*
 machine_learning/histories/*
