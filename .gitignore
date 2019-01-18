@@ -14,6 +14,8 @@ data_t-drive/original/*
 data_mdc/original/*
 data_mdc/uncompressed/*
 
+osmnx_data/*
+
 *.pkl
 *.csv
 *.data
