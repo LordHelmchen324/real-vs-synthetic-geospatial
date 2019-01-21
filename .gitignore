@@ -3,10 +3,14 @@
 
 cache/*
 
+machine_learning/__pycache__/*
+
 machine_learning/checkpoints/*
 machine_learning/generated/*
 machine_learning/histories/*
 machine_learning/summary/*
+
+machine_learning/test_keras_plot_model.png
 
 data_cabspotting/original/*
 data_geolife/original/*
@@ -21,3 +25,4 @@ osmnx_data/*
 *.data
 
 *.osm.xml
+*.DS_Store
