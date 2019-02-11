@@ -4,7 +4,6 @@ import pandas as pd
 
 def __extract_sequence__(df):
     df.drop('user', axis=1, inplace=True)
-    df.sort_values(by='rebased_time', inplace=True)
     return df.values
 
 # Converts a records Pandas Dataframe in my standard format to a Pandas Series
@@ -18,6 +17,23 @@ def records_to_user_geolcation(records):
 
     # Limit the dataframe to the needed columns
     records = records[['user', 'rebased_time', 'longitude', 'latitude']]
+
+    # Create a new dataframe of users to their geolocation data from the records dataframe
+    user_geolocation = records.groupby('user').sort_values(by='rebased_time').apply(__extract_sequence__)
+
+    return user_geolocation
+
+# Like records_to_user_geolcation but time stamps are deltas to previous
+def records_to_user_geolcation_2(records):
+    records.reset_index(inplace=True)
+
+    # Compute delta time stamps in seconds since previous record
+    records['delta_time'] = records.sort_values(by='time').groupby('user')['time'].diff().dt.total_seconds()
+    records['delta_time'] = records['delta_time'].fillna(0)
+    print(records.head())
+
+    # Limit the dataframe to the needed columns
+    records = records[['user', 'delta_time', 'longitude', 'latitude']]
 
     # Create a new dataframe of users to their geolocation data from the records dataframe
     user_geolocation = records.groupby('user').apply(__extract_sequence__)
