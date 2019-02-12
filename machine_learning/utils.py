@@ -30,8 +30,7 @@ def records_to_user_geolcation_2(records):
     # Compute delta time stamps in seconds since previous record
     records['delta_time'] = records.sort_values(by='time').groupby('user')['time'].diff().dt.total_seconds()
     records['delta_time'] = records['delta_time'].fillna(0)
-    print(records.head())
-
+    
     # Limit the dataframe to the needed columns
     records = records[['user', 'delta_time', 'longitude', 'latitude']]
 
