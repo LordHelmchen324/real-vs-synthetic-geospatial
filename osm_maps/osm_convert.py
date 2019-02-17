@@ -1,3 +1,4 @@
+import cartopy.crs as ccrs
 import pickle
 import sys
 import xml.etree.ElementTree as et
@@ -19,6 +20,21 @@ for node in root.findall('node'):
     lat = float(node.get('lat'))
     lon = float(node.get('lon'))
     nodes[id] = (lat, lon)
+
+print('Transforming coordinate projection ...')
+
+# Transform coordinates from PlateCaree to UTM
+# San Francisco = 10
+# Lausanne =
+# Beijing =
+#minx, miny = float('Inf'), float('Inf')
+for id, pos in nodes.items():
+    c = ccrs.UTM(10).transform_point(pos[1], pos[0], ccrs.PlateCarree())
+    nodes[id] = c
+    #minx, miny = min(minx, c[0]), min(miny, c[1])
+#print(minx, miny)
+#for id, pos in nodes.items():
+    #nodes[id] = (pos[0] - minx, pos[1] - miny)
 
 print('Building streets from OSM ways ...')
 
@@ -73,7 +89,7 @@ with open('../data_berlinmod/streets_%s.data' % (name), 'w') as file:
             a = street['line'][i]
             b = street['line'][i + 1]
             file.write(' \n')
-            file.write('                (%f %f %f %f)' % (a[1], a[0], b[1], b[0]))
+            file.write('                (%.0f.0 %.0f.0 %.0f.0 %.0f.0)' % (a[1], a[0], b[1], b[0]))
         file.write('))')
         
     file.write('))\n')
